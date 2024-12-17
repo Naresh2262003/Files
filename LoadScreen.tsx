@@ -17,9 +17,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './App';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-type NewScreenNavigationProp = StackNavigationProp<RootStackParamList, 'NewScreen'>;
+type NewScreenNavigationProp = StackNavigationProp<RootStackParamList, 'UnloadScreen'>;
 
-const HomeScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
+const LoadScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [balance, setBalance] = useState(0);
     const [selectedNoteIndex, setSelectedNoteIndex] = useState(1);
@@ -66,7 +66,7 @@ const HomeScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
         if (balance > 0) {
             Alert.alert('Success', `You entered: ₹${balance}`);
             setBalance(0);
-            navigation.navigate('NewScreen', { publicAddress });
+            navigation.navigate('UnloadScreen', { publicAddress });
         } else {
             Alert.alert('Error', 'Please select an amount.');
         }
@@ -331,4 +331,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default LoadScreen;

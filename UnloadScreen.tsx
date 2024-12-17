@@ -14,9 +14,9 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './App';
 
-type NewScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type NewScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LoadScreen'>;
 
-const NewScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
+const UnloadScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [amount, setAmount] = useState('');
 
@@ -27,7 +27,7 @@ const NewScreen: React.FC<{ publicAddress: string }> = ({ publicAddress }) => {
             Alert.alert('Success', `You entered: ${amount}`);
             setAmount('');
             setModalVisible(false);
-            navigation.navigate('Home', { publicAddress });
+            navigation.navigate('LoadScreen', { publicAddress });
         } else {
             Alert.alert('Error', 'Please enter a valid amount.');
         }
@@ -185,4 +185,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default NewScreen;
+export default UnloadScreen;
